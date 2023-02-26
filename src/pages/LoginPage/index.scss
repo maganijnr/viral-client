@@ -1,0 +1,70 @@
+@import "../../variable.scss";
+
+.children_wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-height: 450px;
+	background: $dark_bg;
+	min-width: 300px;
+	width: 100%;
+	max-width: 450px;
+	border-radius: 20px;
+	padding: 20px 20px;
+
+	h2 {
+		color: $white_bg;
+		text-align: center;
+	}
+
+	.login_form_wrapper {
+		margin-top: 20px;
+
+		.input_group {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			margin: 20px 0px;
+
+			.input_label {
+				font-size: 22px;
+				color: $purple_bg;
+				font-weight: 600;
+			}
+
+			.input {
+				height: 45px;
+				border: 2px solid $purple_bg;
+				border-radius: 10px;
+				background: rgba(133, 91, 226, 40%);
+				outline: none;
+				width: 100%;
+				padding: 0px 10px;
+				font-size: 20px;
+				color: $purple_bg;
+				font-weight: 600;
+			}
+		}
+
+		.form_btn {
+			height: 45px;
+			width: 100%;
+			background: $purple_bg;
+			border-radius: 10px;
+			font-size: 20px;
+			font-weight: 600;
+			cursor: pointer;
+			outline: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.error_msg {
+			color: red;
+			margin-top: 10px;
+			text-align: center;
+		}
+	}
+}

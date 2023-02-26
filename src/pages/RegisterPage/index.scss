@@ -1,0 +1,74 @@
+@import "../../variable.scss";
+
+.children_wrapper {
+	position: absolute;
+	top: 52%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-height: 450px;
+	background: $dark_bg;
+	min-width: 300px;
+	width: 100%;
+	max-width: 450px;
+	border-radius: 20px;
+	padding: 20px 20px;
+
+	@media screen and (max-width: 640px) {
+		width: 350px;
+	}
+
+	h2 {
+		color: $white_bg;
+		text-align: center;
+	}
+
+	.register_form_wrapper {
+		margin-top: 20px;
+
+		.input_group {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			margin: 20px 0px;
+
+			.input_label {
+				font-size: 22px;
+				color: $yellow_bg;
+				font-weight: 600;
+			}
+
+			.input {
+				height: 45px;
+				border: 2px solid $yellow_bg;
+				border-radius: 10px;
+				background: rgb(227, 211, 84, 40%);
+				outline: none;
+				width: 100%;
+				padding: 0px 10px;
+				font-size: 20px;
+				color: $yellow_bg;
+				font-weight: 600;
+			}
+		}
+
+		.form_btn {
+			height: 45px;
+			width: 100%;
+			background: $yellow_bg;
+			border-radius: 10px;
+			font-size: 20px;
+			font-weight: 600;
+			cursor: pointer;
+			outline: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.error_msg {
+			color: red;
+			margin-top: 10px;
+			text-align: center;
+		}
+	}
+}
