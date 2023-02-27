@@ -23,6 +23,7 @@ section {
 			h2 {
 				font-size: 50px;
 				cursor: pointer;
+				font-family: "Righteous", cursive;
 
 				@media screen and (max-width: 640px) {
 					font-size: 40px;
@@ -205,19 +206,6 @@ section {
 			transition: all ease-in-out 0.4s;
 		}
 	}
-
-	// .children_wrapper {
-	// 	position: absolute;
-	// 	top: 50%;
-	// 	left: 50%;
-	// 	transform: translate(-50%, -50%);
-	// 	min-height: 450px;
-	// 	background: $dark_bg;
-	// 	min-width: 300px;
-	// 	width: 100%;
-	// 	max-width: 450px;
-	// 	border-radius: 20px;
-	// }
 }
 
 .register_body {

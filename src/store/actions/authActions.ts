@@ -1,4 +1,5 @@
 import axios from "axios";
+import { baseUrl } from "../../api/baseUrl";
 
 interface LoginProps {
 	username: string;
@@ -20,7 +21,7 @@ export const loginUser = async (userData: LoginProps) => {
 
 	try {
 		const response = await axios.post(
-			`${import.meta.env.VITE_BACKEND_URL}/api/signin`,
+			`${baseUrl}/api/signin`,
 			userData,
 			config
 		);
@@ -53,7 +54,7 @@ export const registerUser = async (userData: RegisterProps) => {
 
 	try {
 		const response = await axios.post(
-			`${import.meta.env.VITE_BACKEND_URL}/api/signup`,
+			`${baseUrl}/api/signup`,
 			userData,
 			config
 		);
