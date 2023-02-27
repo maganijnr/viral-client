@@ -2,7 +2,7 @@ import React from "react";
 
 const ChatPage = () => {
 	return (
-		<div>
+		<div className="page_container">
 			<h2>Chat Page</h2>
 		</div>
 	);
