@@ -1,0 +1,101 @@
+@import "../../../variable.scss";
+
+.web_wrapper {
+	background: $dark_bg;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	color: $white_bg;
+	display: flex;
+	position: relative;
+
+	.side_bar {
+		width: 250px;
+		border-right: 1px solid $white_bg;
+		position: sticky;
+		height: 100vh;
+		flex: 1;
+		top: 0;
+		left: 0;
+		padding: 50px 25px;
+
+		.logo_name {
+			text-decoration: none;
+			color: $white_bg;
+			font-size: 35px;
+			cursor: pointer;
+			font-family: "Pacifico", cursive;
+		}
+
+		.side_bar_items {
+			margin-top: 50px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			.side_bar_item {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				background: $purple_bg;
+				width: 80%;
+				padding: 10px 15px;
+				text-decoration: none;
+				border-radius: 10px;
+				color: $white_bg;
+				h2 {
+					font-size: 18px;
+				}
+			}
+
+			.side_bar_item_close {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				background: transparent;
+				width: 80%;
+				padding: 10px 15px;
+				text-decoration: none;
+				border-radius: 10px;
+				color: $white_bg;
+				h2 {
+					font-size: 18px;
+				}
+			}
+		}
+
+		.profile_link {
+			margin-top: 40px;
+			width: 80%;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			cursor: pointer;
+
+			h2 {
+				font-size: 16px;
+			}
+
+			.profile_img {
+				height: 40px;
+				width: 40px;
+				border-radius: 100%;
+				overflow: hidden;
+				border: 1px solid $purple_bg;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+
+	.app_wrapper {
+		width: calc(100% - 250px);
+		position: relative;
+		flex: 5;
+	}
+}

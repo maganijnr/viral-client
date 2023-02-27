@@ -4,6 +4,11 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import WebLayout from "./components/layouts/weblayout/WebLayout";
+import CreatePage from "./pages/CreatePage";
+import SearchPage from "./pages/SearchPage";
+import ChatPage from "./pages/ChatPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
 	const router = createBrowserRouter([
@@ -12,7 +17,53 @@ function App() {
 			element: (
 				//@ts-ignore
 				<ProtectedRoute>
-					<HomePage />
+					<WebLayout>
+						<HomePage />
+					</WebLayout>
+				</ProtectedRoute>
+			),
+		},
+		{
+			path: "/create",
+			element: (
+				//@ts-ignore
+				<ProtectedRoute>
+					<WebLayout>
+						<CreatePage />
+					</WebLayout>
+				</ProtectedRoute>
+			),
+		},
+		{
+			path: "/search",
+			element: (
+				//@ts-ignore
+				<ProtectedRoute>
+					<WebLayout>
+						<SearchPage />
+					</WebLayout>
+				</ProtectedRoute>
+			),
+		},
+		{
+			path: "/chat",
+			element: (
+				//@ts-ignore
+				<ProtectedRoute>
+					<WebLayout>
+						<ChatPage />
+					</WebLayout>
+				</ProtectedRoute>
+			),
+		},
+		{
+			path: "/profile",
+			element: (
+				//@ts-ignore
+				<ProtectedRoute>
+					<WebLayout>
+						<ProfilePage />
+					</WebLayout>
 				</ProtectedRoute>
 			),
 		},
