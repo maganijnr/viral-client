@@ -1,16 +1,10 @@
-import { loginUser } from "./../actions/authActions";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
+import { IUser } from "../../types";
 
 interface IProps {
-	user: {
-		avatar: string;
-		createdAt?: string;
-		username: string;
-		email: string;
-		password?: string;
-	} | null;
+	user: IUser | null;
 	token: string | null;
 }
 

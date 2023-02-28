@@ -9,6 +9,7 @@ import CreatePage from "./pages/CreatePage";
 import SearchPage from "./pages/SearchPage";
 import ChatPage from "./pages/ChatPage";
 import ProfilePage from "./pages/ProfilePage";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
 	const router = createBrowserRouter([
@@ -63,6 +64,17 @@ function App() {
 				<ProtectedRoute>
 					<WebLayout>
 						<ProfilePage />
+					</WebLayout>
+				</ProtectedRoute>
+			),
+		},
+		{
+			path: "/user-profile/:id",
+			element: (
+				//@ts-ignore
+				<ProtectedRoute>
+					<WebLayout>
+						<UserProfile />
 					</WebLayout>
 				</ProtectedRoute>
 			),
