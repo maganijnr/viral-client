@@ -111,6 +111,7 @@
 		.mobile_header {
 			display: none;
 			background: $dark_bg;
+			z-index: 20;
 
 			@media screen and (max-width: 768px) {
 				width: 100%;
