@@ -6,15 +6,16 @@ export interface IUser {
 	email: string;
 	password?: string;
 	coverPhoto?: string;
-	follower?: [string];
+	followers?: [string];
 }
 
 export interface IPost {
 	comments?: [string];
-	creator: string;
+	creator?: IUser | string;
 	imageUrl?: string;
 	likes?: [string];
 	message?: string;
 	_id: string;
 	createdAt?: string;
+	avatar?: string;
 }

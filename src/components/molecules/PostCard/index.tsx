@@ -3,24 +3,22 @@ import "./index.scss";
 import { BsFillTrashFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaCommentDots } from "react-icons/fa";
 import { likePost } from "../../../store/actions/postActions";
-import { IUser } from "../../../types";
+import { IPost } from "../../../types";
 import { Link } from "react-router-dom";
-
-interface IPost {
-	comments?: [string];
-	creator: IUser;
-	imageUrl?: string;
-	likes?: [string];
-	message?: string;
-	_id: string;
-	createdAt?: string;
-}
 
 //@ts-ignore
 const PostCard = ({ post, callBack }) => {
 	const auth = useAppSelector((state) => state.auth);
 	const { user, token } = auth;
-	const { message, creator, imageUrl, comments, likes, _id }: IPost = post;
+	const {
+		message,
+		creator,
+		imageUrl,
+		comments,
+		likes,
+		_id,
+		avatar,
+	}: IPost = post;
 
 	let hasLiked;
 	if (user) {
@@ -34,6 +32,7 @@ const PostCard = ({ post, callBack }) => {
 		}
 	};
 
+	//@ts-ignore
 	const profileRoute = `/user-profile/${creator._id}`;
 	const accountRoute = `/profile`;
 
@@ -42,22 +41,26 @@ const PostCard = ({ post, callBack }) => {
 			<div className="card_header">
 				<Link
 					to={
+						//@ts-ignore
 						user && user?._id === creator._id
 							? accountRoute
 							: profileRoute
 					}
 				>
 					<div className="user_avatar">
-						<img src={creator.avatar} alt={creator.username} />
+						{/* @ts-ignore */}
+						<img src={creator.avatar ?? avatar} alt={creator.username} />
 					</div>
 				</Link>
 				<Link
 					to={
+						//@ts-ignore
 						user && user?._id === creator._id
 							? accountRoute
 							: profileRoute
 					}
 				>
+					{/* @ts-ignore */}
 					<h5>{creator.username}</h5>
 				</Link>
 			</div>
@@ -83,9 +86,12 @@ const PostCard = ({ post, callBack }) => {
 						<FaCommentDots /> <p>{comments?.length}</p>
 					</span>
 				</div>
-				{user && user._id === creator._id && (
-					<BsFillTrashFill fontSize={18} color="red" />
-				)}
+				{
+					//@ts-ignore
+					user && user._id === creator._id && (
+						<BsFillTrashFill fontSize={18} color="red" />
+					)
+				}
 			</div>
 		</div>
 	);
