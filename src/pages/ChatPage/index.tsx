@@ -1,9 +1,14 @@
 import React from "react";
+import { AiOutlineWechat } from "react-icons/ai";
+import "./index.scss";
 
 const ChatPage = () => {
 	return (
 		<div className="page_container">
-			<h2>Chat Page</h2>
+			<div className="chat_box">
+				<AiOutlineWechat fontSize={100} color="#855be2" />
+				<h2>Coming soon</h2>
+			</div>
 		</div>
 	);
 };

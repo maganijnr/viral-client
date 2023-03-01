@@ -75,6 +75,10 @@
 		margin-top: 5px;
 		padding: 5px 10px;
 
+		.trash_icon {
+			cursor: pointer;
+		}
+
 		.actions {
 			display: flex;
 			align-items: center;

@@ -70,5 +70,16 @@
 			margin-top: 10px;
 			text-align: center;
 		}
+
+		a {
+			text-decoration: none;
+			text-align: center;
+
+			color: $yellow_bg;
+
+			p {
+				margin: 5px auto;
+			}
+		}
 	}
 }

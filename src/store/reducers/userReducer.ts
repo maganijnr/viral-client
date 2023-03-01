@@ -8,10 +8,18 @@ interface IState {
 		user: IUser | null;
 		userPosts: IPost[] | null;
 	};
+	userProfile: {
+		user: IUser | null;
+		userPosts: IPost[] | null;
+	};
 }
 
 const initialState: IState = {
 	userData: {
+		user: null,
+		userPosts: null,
+	},
+	userProfile: {
 		user: null,
 		userPosts: null,
 	},
@@ -25,9 +33,13 @@ const userSlice = createSlice({
 			state.userData.user = action.payload.user;
 			state.userData.userPosts = action.payload.userPosts;
 		},
+		setMyProfile: (state, action) => {
+			state.userProfile.user = action.payload.user;
+			state.userProfile.userPosts = action.payload.userPosts;
+		},
 	},
 });
 
-export const { setUserData } = userSlice.actions;
+export const { setUserData, setMyProfile } = userSlice.actions;
 
 export default userSlice.reducer;
