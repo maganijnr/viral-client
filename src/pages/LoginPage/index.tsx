@@ -4,7 +4,7 @@ import { ThreeCircles } from "react-loader-spinner";
 import { loginUser } from "../../store/actions/authActions";
 import { useAppDispatch } from "../../store/hooks/app";
 import { setUser } from "../../store/reducers/authReducer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
 	const [username, setUsername] = useState<string>("");
@@ -114,6 +114,9 @@ const LoginPage = () => {
 				</button>
 
 				{errorMessage && <p className="error_msg">{errorMessage}</p>}
+				<Link to="/sign-up">
+					<p>Don't have an account? Sign Up</p>
+				</Link>
 			</form>
 		</div>
 	);

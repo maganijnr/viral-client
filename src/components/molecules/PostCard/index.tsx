@@ -2,7 +2,7 @@ import { useAppSelector } from "../../../store/hooks/app";
 import "./index.scss";
 import { BsFillTrashFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaCommentDots } from "react-icons/fa";
-import { likePost } from "../../../store/actions/postActions";
+import { deletePost, likePost } from "../../../store/actions/postActions";
 import { IPost } from "../../../types";
 import { Link } from "react-router-dom";
 
@@ -28,6 +28,13 @@ const PostCard = ({ post, callBack }) => {
 	const handleLikePost = async () => {
 		if (token) {
 			await likePost(_id, token);
+			callBack();
+		}
+	};
+
+	const handleDelete = async () => {
+		if (token) {
+			await deletePost(_id, token);
 			callBack();
 		}
 	};
@@ -89,7 +96,12 @@ const PostCard = ({ post, callBack }) => {
 				{
 					//@ts-ignore
 					user && user._id === creator._id && (
-						<BsFillTrashFill fontSize={18} color="red" />
+						<BsFillTrashFill
+							fontSize={18}
+							color="red"
+							onClick={handleDelete}
+							className="trash_icon"
+						/>
 					)
 				}
 			</div>

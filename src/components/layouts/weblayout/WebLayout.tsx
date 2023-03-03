@@ -5,9 +5,10 @@ import "./index.scss";
 import { HiOutlineHome } from "react-icons/hi";
 import { MdCreateNewFolder } from "react-icons/md";
 import { AiOutlineMessage } from "react-icons/ai";
-import { BiSearchAlt } from "react-icons/bi";
+import { BiExit, BiSearchAlt } from "react-icons/bi";
 import { useAppSelector } from "../../../store/hooks/app";
 import Container from "../../organisms/Container";
+import { logoutUser } from "../../../store/actions/authActions";
 
 interface IProps {
 	children?: ReactNode;
@@ -18,6 +19,11 @@ const WebLayout: FC<IProps> = ({ children }) => {
 	const navigate = useNavigate();
 
 	const { user } = auth;
+
+	const handleLogout = async () => {
+		await logoutUser();
+		navigate("/sign-in");
+	};
 	return (
 		<Container>
 			<div className="web_wrapper">
@@ -74,6 +80,11 @@ const WebLayout: FC<IProps> = ({ children }) => {
 						</div>
 						<h2>Profile</h2>
 					</div>
+
+					<div className="logout_btn" onClick={handleLogout}>
+						<BiExit />
+						<h2>Logout</h2>
+					</div>
 				</div>
 				<div className="app_wrapper">
 					<header className="mobile_header">
@@ -118,6 +129,9 @@ const WebLayout: FC<IProps> = ({ children }) => {
 								<img src={user?.avatar} alt="user" />
 							</div>
 						</NavLink>
+						<div className="logout_icon" onClick={handleLogout}>
+							<BiExit fontSize={20} color="#fff" />
+						</div>
 					</div>
 				</div>
 			</div>

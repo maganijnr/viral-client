@@ -89,3 +89,15 @@ export const uploadPost = async (
 		console.log(error);
 	}
 };
+
+export const deletePost = async (postId: string, token: string) => {
+	if (token) {
+		axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+	}
+
+	try {
+		await axios.delete(`${baseUrl}/api/posts/${postId}`);
+	} catch (error) {
+		console.log(error);
+	}
+};

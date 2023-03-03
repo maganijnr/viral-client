@@ -77,3 +77,13 @@ export const registerUser = async (userData: RegisterProps) => {
 		return { error: msg };
 	}
 };
+
+export const logoutUser = async () => {
+	if (
+		localStorage.getItem("viralUser") &&
+		localStorage.getItem("viralToken")
+	) {
+		localStorage.removeItem("viralUser");
+		localStorage.removeItem("viralToken");
+	}
+};
