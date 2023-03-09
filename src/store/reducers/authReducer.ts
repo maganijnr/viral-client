@@ -1,3 +1,4 @@
+import { updateUser } from "./../actions/userActions";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
@@ -32,9 +33,14 @@ const authSlice = createSlice({
 			state.user = action.payload.user;
 			state.token = action.payload.token;
 		},
+
+		updateUserState: (state, action) => {
+			localStorage.setItem("viralUser", JSON.stringify(action.payload.user));
+			state.user = action.payload.user;
+		},
 	},
 });
 
-export const { setUser } = authSlice.actions;
+export const { setUser, updateUserState } = authSlice.actions;
 
 export default authSlice.reducer;
