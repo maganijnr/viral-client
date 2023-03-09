@@ -41,7 +41,6 @@
 			.user_avatar {
 				width: 100px;
 				height: 100px;
-				overflow: hidden;
 				border-radius: 50%;
 				border: 1px solid $purple_bg;
 				position: relative;
@@ -129,6 +128,7 @@
 		grid-template-rows: repeat(2, 1fr);
 		grid-column-gap: 10px;
 		grid-row-gap: 20px;
+		padding-bottom: 50px;
 
 		@media screen and (max-width: 768px) {
 			grid-template-columns: 1fr;

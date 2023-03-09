@@ -89,9 +89,9 @@ const PostCard = ({ post, callBack }) => {
 						)}{" "}
 						<p>{likes?.length}</p>
 					</span>
-					<span>
+					{/* <span>
 						<FaCommentDots /> <p>{comments?.length}</p>
-					</span>
+					</span> */}
 				</div>
 				{
 					//@ts-ignore

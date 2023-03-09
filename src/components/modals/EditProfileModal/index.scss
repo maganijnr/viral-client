@@ -1,0 +1,114 @@
+@import "../../../variable.scss";
+
+form {
+	margin-top: 20px;
+	.avatar_input {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 auto;
+		justify-content: center;
+
+		img {
+			width: 80px;
+			height: 80px;
+			object-fit: cover;
+			overflow: hidden;
+			border-radius: 50%;
+			cursor: pointer;
+			border: 1px solid #fff;
+		}
+
+		.edit_avatar_btn {
+			position: absolute;
+			top: 70%;
+			left: 55%;
+			height: 30px;
+			width: 30px;
+			border-radius: 100%;
+			cursor: pointer;
+			background: $white_bg;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transform: translate(-45%, -30%);
+		}
+	}
+
+	.cover_photo_input {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		h2 {
+			font-size: 14px;
+			font-weight: 400;
+			margin-bottom: 5px;
+		}
+		img {
+			width: 100px;
+			min-width: 80px;
+			height: 80px;
+			object-fit: cover;
+			border-radius: 10px;
+			overflow: hidden;
+			border: 1px solid #fff;
+		}
+
+		.edit_cover_btn {
+			height: 30px;
+			width: 30px;
+			border-radius: 100%;
+			cursor: pointer;
+			background: $white_bg;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 5px;
+		}
+	}
+
+	.form_input {
+		width: 100%;
+		margin: 10px 0px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 5px;
+		label {
+			font-size: 18px;
+			color: $white_bg;
+			font-weight: 600;
+		}
+
+		input {
+			height: 45px;
+			border: 2px solid $white_bg;
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.903);
+			outline: none;
+			width: 100%;
+			padding: 0px 10px;
+			font-size: 18px;
+			color: $purple_bg;
+			font-weight: 500;
+		}
+	}
+
+	.form_btn {
+		background: $white_bg;
+		outline: none;
+		border: none;
+		padding: 12px 40px;
+		margin: 20px 0px 0px;
+		font-size: 14px;
+		font-weight: 600;
+		color: $purple_bg;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 180px;
+		cursor: pointer;
+	}
+}

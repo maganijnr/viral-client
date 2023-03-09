@@ -75,13 +75,7 @@ const UserProfile = () => {
 				<div className="profile_body">
 					<div className="cover_section">
 						<div className="cover_photo">
-							<img
-								src={
-									`https://res.cloudinary.com/dj9ndrcxg/image/upload/v1677266443/f1xyeiaxek3ejucxtfnq.jpg` ??
-									userData.user?.coverPhoto
-								}
-								alt="cover photo"
-							/>
+							<img src={userData.user?.coverPhoto} alt="cover photo" />
 						</div>
 						<div className="user_profile">
 							<div className="user_avatar">

@@ -1,0 +1,46 @@
+@import "../../../variable.scss";
+
+.modal_wrapper_open {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: red;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+	background: rgba(0, 0, 0, 0.5);
+	@media screen and (max-width: 640px) {
+		padding: 0px 20px;
+	}
+
+	.modal_content {
+		max-width: 500px;
+		background: $purple_bg;
+		width: 100%;
+		padding: 10px;
+		border-radius: 10px;
+
+		@media screen and (max-width: 640px) {
+			padding: 15px;
+		}
+
+		.modal_header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px 0px;
+			border-bottom: 1px solid $white_bg;
+
+			.close_icon {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.modal_wrapper_close {
+	display: none;
+}

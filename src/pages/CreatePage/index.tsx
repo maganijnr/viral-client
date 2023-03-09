@@ -54,7 +54,6 @@ const CreatePage = () => {
 				<form className="form" onSubmit={handleSubmit}>
 					<div
 						className="image_div"
-						// @ts-ignore
 						onClick={() => imageRef.current?.click()}
 					>
 						<input

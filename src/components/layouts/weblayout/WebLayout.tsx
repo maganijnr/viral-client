@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./index.scss";
 
@@ -9,6 +9,8 @@ import { BiExit, BiSearchAlt } from "react-icons/bi";
 import { useAppSelector } from "../../../store/hooks/app";
 import Container from "../../organisms/Container";
 import { logoutUser } from "../../../store/actions/authActions";
+import { useJwt } from "react-jwt";
+import useToken from "../../../hooks/useToken";
 
 interface IProps {
 	children?: ReactNode;
@@ -17,13 +19,23 @@ interface IProps {
 const WebLayout: FC<IProps> = ({ children }) => {
 	const auth = useAppSelector((state) => state.auth);
 	const navigate = useNavigate();
+	const { user, token } = auth;
+	const { hasTokenExpired } = useToken();
+	const isTokenExpired = hasTokenExpired();
 
-	const { user } = auth;
+	console.log(isTokenExpired);
 
 	const handleLogout = async () => {
 		await logoutUser();
 		navigate("/sign-in");
 	};
+
+	useEffect(() => {
+		if (isTokenExpired) {
+			handleLogout();
+		}
+	}, [token]);
+
 	return (
 		<Container>
 			<div className="web_wrapper">
