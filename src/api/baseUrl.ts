@@ -1,1 +1,1 @@
-export const baseUrl = "https://viral-api-nine.vercel.app";
+export const baseUrl = "https://viral-api-murex.vercel.app";
