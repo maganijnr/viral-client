@@ -5,11 +5,20 @@ import { getAllPosts } from "../../store/actions/postActions";
 import { fetchAllPosts } from "../../store/reducers/postReducer";
 import Loader from "../../components/atoms/Loader";
 import PostCard from "../../components/molecules/PostCard";
+import { ThreeCircles } from "react-loader-spinner";
+import { IUser } from "../../types";
+import { getUsers } from "../../store/actions/userActions";
+import UserListItem from "../../components/atoms/UserListItem";
 
 const HomePage = () => {
 	const dispatch = useAppDispatch();
 	const [loading, setLoading] = useState<boolean>(false);
 	const data = useAppSelector((state) => state.posts);
+	const auth = useAppSelector((state) => state.auth);
+	const [usersLoading, setUsersLoading] = useState<boolean>(false);
+	const [users, setUsers] = useState<IUser[]>([]);
+
+	const { token } = auth;
 
 	async function homePosts() {
 		setLoading(true);
@@ -20,6 +29,21 @@ const HomePage = () => {
 		} catch (error) {
 			console.log(error);
 			setLoading(false);
+		}
+	}
+
+	async function getFollowUsers() {
+		setUsersLoading(true);
+		try {
+			//@ts-ignore
+			const result = await getUsers(token);
+
+			//@ts-ignore
+			setUsers(result.users);
+			setUsersLoading(false);
+		} catch (error) {
+			console.log(error);
+			setUsersLoading(false);
 		}
 	}
 
@@ -34,6 +58,7 @@ const HomePage = () => {
 
 	useEffect(() => {
 		homePosts();
+		getFollowUsers();
 	}, []);
 
 	return (
@@ -47,31 +72,19 @@ const HomePage = () => {
 						))}
 					</div>
 					<div className="info_section">
-						{" "}
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
-						<h2>Home</h2>
+						{usersLoading && (
+							<div className="info_loader">
+								<ThreeCircles color="#fff" width={20} height={20} />
+							</div>
+						)}
+
+						{!usersLoading && users && (
+							<div>
+								{users.map((user: IUser) => (
+									<UserListItem key={user._id} user={user} />
+								))}
+							</div>
+						)}
 					</div>
 				</div>
 			)}

@@ -141,3 +141,30 @@ export const uploadCoverImage = async (image: any) => {
 		console.log(error);
 	}
 };
+
+export const getUsers = async (token: string) => {
+	if (token) {
+		axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+	}
+
+	try {
+		const results = await axios.get(`${baseUrl}/api/users`);
+
+		return results.data;
+	} catch (error) {
+		//@ts-ignore
+		const msg =
+			//@ts-ignore
+			(error.response &&
+				//@ts-ignore
+				error.response.data &&
+				//@ts-ignore
+				error.response.data.message) ||
+			//@ts-ignore
+			error.message ||
+			//@ts-ignore
+			error.toString();
+
+		return { error: msg };
+	}
+};
