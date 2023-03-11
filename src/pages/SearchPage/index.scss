@@ -1,0 +1,40 @@
+@import "../../variable.scss";
+
+.search_body {
+	margin: 20px 0px 20px;
+
+	.search_input {
+		display: flex;
+		align-items: center;
+		border: 1px solid $purple_bg;
+		max-width: 300px;
+		padding: 0px 5px;
+		height: 40px;
+		gap: 2px;
+		margin-bottom: 20px;
+		border-radius: 8px;
+
+		input {
+			height: 100%;
+			width: 100%;
+			outline: none;
+			background: transparent;
+			border: none;
+			color: $white_bg;
+			letter-spacing: 0.5px;
+		}
+
+		.icons {
+			cursor: pointer;
+		}
+	}
+
+	.search_list {
+		p {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 40px;
+		}
+	}
+}
