@@ -23,8 +23,6 @@ const WebLayout: FC<IProps> = ({ children }) => {
 	const { hasTokenExpired } = useToken();
 	const isTokenExpired = hasTokenExpired();
 
-	console.log(isTokenExpired);
-
 	const handleLogout = async () => {
 		await logoutUser();
 		navigate("/sign-in");
